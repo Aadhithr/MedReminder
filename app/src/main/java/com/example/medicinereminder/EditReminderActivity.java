@@ -41,6 +41,11 @@ public class EditReminderActivity extends AppCompatActivity {
         datePicker = findViewById(R.id.date_picker);
         timePicker = findViewById(R.id.time_picker);
         submitButton = findViewById(R.id.submit_button);
+        Button deleteButton = findViewById(R.id.delete_button);
+        deleteButton.setOnClickListener(v -> {
+            // Call a method to delete the reminder
+            deleteReminder();
+        });
 
         // Get the ID of the Medicine to be edited from the Intent.
         medicineId = getIntent().getLongExtra("medicineId", -1);
@@ -107,5 +112,18 @@ public class EditReminderActivity extends AppCompatActivity {
 
             finish();
         });
+    }
+
+    private void deleteReminder() {
+        new Thread(() -> {
+            Medicine medicineToDelete = db.medicineDao().findById(medicineId);
+            if (medicineToDelete != null) {
+                db.medicineDao().delete(medicineToDelete);
+            } else {
+                runOnUiThread(() -> Toast.makeText(this, "Medicine not found", Toast.LENGTH_SHORT).show());
+            }
+        }).start();
+
+        finish();
     }
 }

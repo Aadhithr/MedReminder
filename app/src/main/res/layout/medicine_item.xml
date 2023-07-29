@@ -13,21 +13,26 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:padding="8dp" />
+        android:textColor="#2196F3"
+        android:paddingBottom="8dp" />
 
     <TextView
         android:id="@+id/medicine_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:padding="8dp" />
+        android:textColor="#00BCD4"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp" />
 
     <TextView
         android:id="@+id/medicine_time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="16sp"
-        android:padding="8dp" />
+        android:textColor="#009688"
+        android:paddingTop="4dp"
+        android:paddingBottom="8dp" />
 
     <ImageButton
         android:id="@+id/edit_button"
@@ -35,6 +40,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:background="@android:color/transparent"
-        android:src="@drawable/ic_edit" />
+        android:src="@drawable/ic_edit"
+        android:padding="8dp" />
 
 </LinearLayout>
